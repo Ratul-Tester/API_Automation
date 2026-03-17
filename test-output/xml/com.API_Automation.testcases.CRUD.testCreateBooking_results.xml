@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="C:/Users/BIOTECH/IdeaProjects/API_Automation"
+           tests="1"
+           failures="0"
+           errors="0"
+           skipped="0"
+           time="2.465">
+    <properties></properties>
+
+
+
+            <testcase
+                name="createBooking"
+                time="2.465"
+                classname="com.API_Automation.testcases.CRUD.testCreateBooking">
+            </testcase>
+</testsuite>

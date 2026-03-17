@@ -2,6 +2,7 @@ package com.API_Automation.modules;
 
 import com.API_Automation.pojofiles.Auth;
 import com.API_Automation.pojofiles.Booking;
+import com.API_Automation.pojofiles.BookingResponse;
 import com.API_Automation.pojofiles.Bookingdates;
 import com.google.gson.Gson;
 
@@ -69,6 +70,7 @@ public class PayloadManager {
         booking.setBookingdates(bookingdates);
         booking.setAdditionalneeds("Breakfast");
 
+        gson = new Gson();
         return gson.toJson(booking);
     }
 
@@ -112,5 +114,12 @@ public class PayloadManager {
         auth.setUsername("admin");
         auth.setPassword("password123");
         return gson.toJson(auth);
+    }
+
+    public BookingResponse bookingResponseJava(String responseString){
+
+        gson = new Gson();
+        BookingResponse bookingResponse = gson.fromJson(responseString, BookingResponse.class);
+        return bookingResponse;
     }
 }
