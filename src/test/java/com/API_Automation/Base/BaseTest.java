@@ -30,6 +30,8 @@ public class BaseTest {
         payloadManager = new PayloadManager();
         assertActions = new AssertActions();
         requestSpecification = new RequestSpecBuilder().setBaseUri(APIConstants.Base_URL)
+                .addHeader("Content-Type","application/json")
+                .build().log().all();
     }
 
     public String getToken(){
