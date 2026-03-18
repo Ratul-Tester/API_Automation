@@ -12,8 +12,7 @@ import org.testng.annotations.BeforeTest;
 
 public class BaseTest {
 
-<<<<<<< HEAD
-=======
+
     public RequestSpecification requestSpecification;
     public Response  response;
     public ValidatableResponse validatableResponse;
@@ -38,6 +37,6 @@ public class BaseTest {
         System.out.println("Getting token");
         return null;
     }
->>>>>>> d98633384b95b862547801ae354e5c853db3c243
+
 
 }

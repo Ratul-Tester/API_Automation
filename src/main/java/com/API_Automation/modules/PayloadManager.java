@@ -8,7 +8,7 @@ import com.google.gson.Gson;
 
 public class PayloadManager {
 
-<<<<<<< HEAD
+
     Gson gson;
 
     public String CreateBookingPayloadPostMethod(){
@@ -25,6 +25,9 @@ public class PayloadManager {
 
         booking.setBookingdates(bookingdates);
         booking.setAdditionalneeds("Breakfast");
+
+        gson = new Gson();
+
         return gson.toJson(booking);
     }
 
@@ -42,18 +45,22 @@ public class PayloadManager {
 
         booking.setBookingdates(bookingdates);
         booking.setAdditionalneeds("Breakfast and Lunch");
+
+        gson = new Gson();
         return gson.toJson(booking);
     }
 
-    public String PartialUpdateBookingPayloadPatchMethod(){
+    public String PartialUpdateBookingPayloadPatchMethod() {
 
         Booking booking = new Booking();
         booking.setFirstname("Sita");
         booking.setLastname("Ram");
         booking.setTotalprice(1);
         booking.setDepositpaid(false);
-=======
-    Gson gson = new Gson();
+
+        gson = new Gson();
+        return gson.toJson(booking);
+    }
 
     public String createBookingPayloadMethodPost(){
 
@@ -89,6 +96,7 @@ public class PayloadManager {
         booking.setBookingdates(bookingdates);
         booking.setAdditionalneeds("Breakfast+Lunch");
 
+        gson = new Gson();
         return gson.toJson(booking);
     }
 
@@ -98,21 +106,22 @@ public class PayloadManager {
         booking.setFirstname("Sambh");
         booking.setLastname("Sadashiv");
         booking.setTotalprice(8);
->>>>>>> d98633384b95b862547801ae354e5c853db3c243
 
+        gson = new Gson();
         return gson.toJson(booking);
     }
 
-<<<<<<< HEAD
-    public String AuthPayloadPostMethod(){
-        Auth auth = new Auth();
-=======
+
+    /*public String AuthPayloadPostMethod(){
+        Auth auth = new Auth();*/
+
     public String createAuthPayload(){
 
         Auth  auth = new Auth();
->>>>>>> d98633384b95b862547801ae354e5c853db3c243
+
         auth.setUsername("admin");
         auth.setPassword("password123");
+        gson = new Gson();
         return gson.toJson(auth);
     }
 

@@ -1,7 +1,6 @@
 package com.API_Automation.testcases.CRUD;
 
 import com.API_Automation.Base.BaseTest;
-import com.API_Automation.actions.AssertActions;
 import com.API_Automation.endpoints.APIConstants;
 import com.API_Automation.pojofiles.BookingResponse;
 import io.qameta.allure.Description;
