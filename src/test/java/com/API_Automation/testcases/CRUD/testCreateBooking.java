@@ -42,4 +42,31 @@ public class testCreateBooking extends BaseTest {
         //TestNG Assertions
         assertActions.verifyStatusCodeValidResponse(response);
     }
+
+    @Test(groups = "smoke")
+    @Owner("Ratul")
+    @Severity(SeverityLevel.NORMAL)
+    @Description("TC#2 - Verify the new Invalid booking")
+    public void createInvalidBooking(){
+
+        requestSpecification.basePath(APIConstants.Create_Booking_Path);
+        response = RestAssured
+                .given(requestSpecification).body(payloadManager.createWithEmptyBookingPayloadMethodPost())
+                .when().post();
+        /*.then().log().all().extract().response();*/
+
+        // Validatable Assertion
+        validatableResponse = response.then().log().all();
+        validatableResponse.statusCode(500);
+
+        // Deserialization - Response
+        /*BookingResponse bookingResponse = payloadManager.bookingResponseJava(response.asString());*/
+
+        //AssertJ
+        /*assertThat(bookingResponse).isNull();
+        assertThat(bookingResponse.getBookingid()).isNull();*/
+
+        //TestNG Assertions
+        assertActions.verifyStatusCodeInvalidResponse(response);
+    }
 }

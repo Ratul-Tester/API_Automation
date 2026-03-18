@@ -81,6 +81,11 @@ public class PayloadManager {
         return gson.toJson(booking);
     }
 
+    public String createWithEmptyBookingPayloadMethodPost(){
+
+        return "{}";
+    }
+
     public String updateBookingPayloadMethodPut(){
 
         Booking booking = new Booking();
