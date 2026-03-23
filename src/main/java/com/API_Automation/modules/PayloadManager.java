@@ -1,9 +1,6 @@
 package com.API_Automation.modules;
 
-import com.API_Automation.pojofiles.Auth;
-import com.API_Automation.pojofiles.Booking;
-import com.API_Automation.pojofiles.BookingResponse;
-import com.API_Automation.pojofiles.Bookingdates;
+import com.API_Automation.pojofiles.*;
 import com.google.gson.Gson;
 
 public class PayloadManager {
@@ -123,11 +120,18 @@ public class PayloadManager {
     public String createAuthPayload(){
 
         Auth  auth = new Auth();
-
         auth.setUsername("admin");
         auth.setPassword("password123");
         gson = new Gson();
-        return gson.toJson(auth);
+        String jsonPayloadString = gson.toJson(auth);
+        System.out.println("Payload set to "+jsonPayloadString);
+        return jsonPayloadString;
+    }
+
+    public String getTokenfromJson(String tokenResponse){
+        gson = new Gson();
+        TokenResponse response = gson.fromJson(tokenResponse, TokenResponse.class);
+        return response.getToken();
     }
 
     public BookingResponse bookingResponseJava(String responseString){

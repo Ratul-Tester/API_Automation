@@ -4,19 +4,19 @@
            failures="0"
            errors="0"
            skipped="0"
-           time="3.653">
+           time="3.787">
     <properties></properties>
 
 
 
             <testcase
                 name="createBooking"
-                time="2.314"
+                time="2.524"
                 classname="com.API_Automation.testcases.CRUD.testCreateBooking">
             </testcase>
             <testcase
                 name="createInvalidBooking"
-                time="1.339"
+                time="1.263"
                 classname="com.API_Automation.testcases.CRUD.testCreateBooking">
             </testcase>
 </testsuite>
