@@ -3,7 +3,9 @@ package com.API_Automation.Base;
 import com.API_Automation.actions.AssertActions;
 import com.API_Automation.endpoints.APIConstants;
 import com.API_Automation.modules.PayloadManager;
+import io.restassured.RestAssured;
 import io.restassured.builder.RequestSpecBuilder;
+import io.restassured.http.ContentType;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import io.restassured.response.ValidatableResponse;
@@ -12,8 +14,7 @@ import org.testng.annotations.BeforeTest;
 
 public class BaseTest {
 
-<<<<<<< HEAD
-=======
+
     public RequestSpecification requestSpecification;
     public Response  response;
     public ValidatableResponse validatableResponse;
@@ -29,13 +30,19 @@ public class BaseTest {
 
         payloadManager = new PayloadManager();
         assertActions = new AssertActions();
-        requestSpecification = new RequestSpecBuilder().setBaseUri(APIConstants.Base_URL)
+        requestSpecification = new RequestSpecBuilder()
+                .setBaseUri(APIConstants.Base_URL)
+                .addHeader("Content-Type","application/json")
+                .build().log().all();
+        /*requestSpecification = RestAssured.given()
+                .baseUri(APIConstants.Base_URL)
+                .contentType(ContentType.JSON).log().all();*/
     }
 
     public String getToken(){
         System.out.println("Getting token");
         return null;
     }
->>>>>>> d98633384b95b862547801ae354e5c853db3c243
+
 
 }
