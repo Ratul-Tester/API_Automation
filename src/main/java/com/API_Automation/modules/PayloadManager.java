@@ -1,9 +1,6 @@
 package com.API_Automation.modules;
 
-import com.API_Automation.pojofiles.Auth;
-import com.API_Automation.pojofiles.Booking;
-import com.API_Automation.pojofiles.BookingResponse;
-import com.API_Automation.pojofiles.Bookingdates;
+import com.API_Automation.pojofiles.*;
 import com.google.gson.Gson;
 
 public class PayloadManager {
@@ -25,7 +22,10 @@ public class PayloadManager {
 
         booking.setBookingdates(bookingdates);
         booking.setAdditionalneeds("Breakfast");
-        return gson.toJson(booking.toString());
+
+        gson = new Gson();
+
+        return gson.toJson(booking);
     }
 
     public String UpdateBookingPayloadPutMethod(){
@@ -42,6 +42,8 @@ public class PayloadManager {
 
         booking.setBookingdates(bookingdates);
         booking.setAdditionalneeds("Breakfast and Lunch");
+
+        gson = new Gson();
         return gson.toJson(booking);
     }
 
@@ -52,19 +54,90 @@ public class PayloadManager {
         booking.setLastname("Ram");
         booking.setTotalprice(1);
         booking.setDepositpaid(false);
+
+        gson = new Gson();
         return gson.toJson(booking);
     }
+
+    public String createBookingPayloadMethodPost(){
+
+        Booking booking = new Booking();
+        booking.setFirstname("Ramesh");
+        booking.setLastname("Nandy");
+        booking.setTotalprice(124);
+        booking.setDepositpaid(false);
+
+        Bookingdates bookingdates = new Bookingdates();
+        bookingdates.setCheckin("2018-04-20");
+        bookingdates.setCheckout("2019-04-20");
+
+        booking.setBookingdates(bookingdates);
+        booking.setAdditionalneeds("Breakfast");
+
+        gson = new Gson();
+        return gson.toJson(booking);
+    }
+
+    public String createWithEmptyBookingPayloadMethodPost(){
+
+        return "{}";
+    }
+
+    public String updateBookingPayloadMethodPut(){
+
+        Booking booking = new Booking();
+        booking.setFirstname("Ganesh");
+        booking.setLastname("Roy");
+        booking.setTotalprice(143);
+        booking.setDepositpaid(true);
+
+        Bookingdates bookingdates = new Bookingdates();
+        bookingdates.setCheckin("2019-04-20");
+        bookingdates.setCheckout("2020-04-20");
+
+        booking.setBookingdates(bookingdates);
+        booking.setAdditionalneeds("Breakfast+Lunch");
+
+        gson = new Gson();
+        return gson.toJson(booking);
+    }
+
+    public String partialBookingPayloadMethodPatch(){
+
+        Booking booking = new Booking();
+        booking.setFirstname("Sambh");
+        booking.setLastname("Sadashiv");
+        booking.setTotalprice(8);
+
+        gson = new Gson();
+        return gson.toJson(booking);
+    }
+
+
+    /*public String AuthPayloadPostMethod(){
+        Auth auth = new Auth();*/
 
     public String createAuthPayload(){
 
         Auth  auth = new Auth();
         auth.setUsername("admin");
         auth.setPassword("password123");
-        return gson.toJson(auth);
+        gson = new Gson();
+        String jsonAuthPayloadString = gson.toJson(auth);
+        System.out.println("Payload set to "+jsonAuthPayloadString);
+        return jsonAuthPayloadString;
+    }
+
+    public String getTokenfromJson(String tokenResponse){
+        gson = new Gson();
+        TokenResponse tokenResponse1 = gson.fromJson(tokenResponse, TokenResponse.class);
+        return tokenResponse1.getToken();
     }
 
     public BookingResponse bookingResponseJava(String responseString){
+
         gson = new Gson();
-        return gson.fromJson(responseString, BookingResponse.class);
+        BookingResponse bookingResponse = gson.fromJson(responseString, BookingResponse.class);
+        return bookingResponse;
     }
 }
