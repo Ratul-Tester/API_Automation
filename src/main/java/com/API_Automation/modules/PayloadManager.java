@@ -123,15 +123,15 @@ public class PayloadManager {
         auth.setUsername("admin");
         auth.setPassword("password123");
         gson = new Gson();
-        String jsonPayloadString = gson.toJson(auth);
-        System.out.println("Payload set to "+jsonPayloadString);
-        return jsonPayloadString;
+        String jsonAuthPayloadString = gson.toJson(auth);
+        System.out.println("Payload set to "+jsonAuthPayloadString);
+        return jsonAuthPayloadString;
     }
 
     public String getTokenfromJson(String tokenResponse){
         gson = new Gson();
-        TokenResponse response = gson.fromJson(tokenResponse, TokenResponse.class);
-        return response.getToken();
+        TokenResponse tokenResponse1 = gson.fromJson(tokenResponse, TokenResponse.class);
+        return tokenResponse1.getToken();
     }
 
     public BookingResponse bookingResponseJava(String responseString){
