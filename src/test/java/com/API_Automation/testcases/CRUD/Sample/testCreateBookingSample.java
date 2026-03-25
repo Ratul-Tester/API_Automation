@@ -20,7 +20,7 @@ public class testCreateBookingSample extends BaseTest {
     @Description("TC#1 - Verify the new booking")
     public void createBooking(){
 
-        requestSpecification.basePath(APIConstants.Create_Booking_Path);
+        requestSpecification.basePath(APIConstants.Booking_Path);
         response = RestAssured
                 .given(requestSpecification).body(payloadManager.createBookingPayloadMethodPost())
                 .when().post();
@@ -50,7 +50,7 @@ public class testCreateBookingSample extends BaseTest {
     @Description("TC#2 - Verify the new Invalid booking")
     public void createInvalidBooking(){
 
-        requestSpecification.basePath(APIConstants.Create_Booking_Path);
+        requestSpecification.basePath(APIConstants.Booking_Path);
         response = RestAssured
                 .given(requestSpecification).body(payloadManager.createWithEmptyBookingPayloadMethodPost())
                 .when().post();

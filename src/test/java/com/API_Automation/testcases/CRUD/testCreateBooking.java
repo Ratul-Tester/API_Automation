@@ -19,11 +19,11 @@ public class testCreateBooking extends BaseTest {
     @Description("TC#1 - Verify the new booking")
     public void createBooking(){
 
-        requestSpecification.basePath(APIConstants.Create_Booking_Path);
+        requestSpecification.basePath(APIConstants.Booking_Path);
         response = RestAssured
                 .given(requestSpecification).body(payloadManager.createBookingPayloadMethodPost())
                 .when().post();
-                /*.then().log().all().extract().response();*/
+
 
         // Validatable Assertion
         validatableResponse = response.then().log().all();
@@ -49,22 +49,14 @@ public class testCreateBooking extends BaseTest {
     @Description("TC#2 - Verify the new Invalid booking")
     public void createInvalidBooking(){
 
-        requestSpecification.basePath(APIConstants.Create_Booking_Path);
+        requestSpecification.basePath(APIConstants.Booking_Path);
         response = RestAssured
                 .given(requestSpecification).body(payloadManager.createWithEmptyBookingPayloadMethodPost())
                 .when().post();
-        /*.then().log().all().extract().response();*/
 
         // Validatable Assertion
         validatableResponse = response.then().log().all();
         validatableResponse.statusCode(500);
-
-        // Deserialization - Response
-        /*BookingResponse bookingResponse = payloadManager.bookingResponseJava(response.asString());*/
-
-        //AssertJ
-        /*assertThat(bookingResponse).isNull();
-        assertThat(bookingResponse.getBookingid()).isNull();*/
 
         //TestNG Assertions
         assertActions.verifyStatusCodeInvalidResponse(response);
