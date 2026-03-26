@@ -134,6 +134,12 @@ public class PayloadManager {
         return tokenResponse1.getToken();
     }
 
+    public Booking getResponsefromJson(String getResponse){
+        gson = new Gson();
+        Booking booking = gson.fromJson(getResponse, Booking.class);
+        return booking;
+    }
+
     public BookingResponse bookingResponseJava(String responseString){
 
         gson = new Gson();

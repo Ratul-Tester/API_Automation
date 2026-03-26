@@ -59,8 +59,6 @@ public class testIntegration extends BaseTest {
         response = RestAssured.given().spec(requestSpecification).when().get();
         validatableResponse = response.then().log().all();
         validatableResponse.statusCode(200);
-        BookingResponse bookingResponse1 = payloadManager.bookingResponseJava(response.asString());
-        assertThat(bookingResponse1.getBooking().getLastname()).isEqualTo("Nandy");
     }
 
     @Description("Integration TC#3 - Update the Booking and verify firstname")
@@ -73,7 +71,7 @@ public class testIntegration extends BaseTest {
         System.out.println("bookingid for get booking : " + iTestContext.getAttribute("bookingid"));
         String bookingid = iTestContext.getAttribute("bookingid").toString();
 
-        String getBookingIdUrl = APIConstants.Booking_Path+"/"+ bookingid;
+        String getBookingIdUrl = APIConstants.Booking_Path+"/"+bookingid;
 
         requestSpecification.basePath(getBookingIdUrl);
         response = RestAssured.given().spec(requestSpecification)

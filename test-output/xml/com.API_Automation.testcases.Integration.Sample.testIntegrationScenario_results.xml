@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="C:/Users/BIOTECH/IdeaProjects/API_Automation"
+           tests="4"
+           failures="0"
+           errors="0"
+           skipped="0"
+           time="7.389">
+    <properties></properties>
+
+
+
+            <testcase
+                name="testCreateBooking"
+                time="3.549"
+                classname="com.API_Automation.testcases.Integration.Sample.testIntegrationScenario">
+            </testcase>
+            <testcase
+                name="testUpdateBooking"
+                time="1.283"
+                classname="com.API_Automation.testcases.Integration.Sample.testIntegrationScenario">
+            </testcase>
+            <testcase
+                name="testVerifyBooking"
+                time="1.224"
+                classname="com.API_Automation.testcases.Integration.Sample.testIntegrationScenario">
+            </testcase>
+            <testcase
+                name="testDeleteBooking"
+                time="1.333"
+                classname="com.API_Automation.testcases.Integration.Sample.testIntegrationScenario">
+            </testcase>
+</testsuite>
